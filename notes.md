@@ -33,3 +33,15 @@
 
   A website project can have multiple apps running in it. These apps are all their own thing within the website / project
   You can take a single one of these apps and drop them into multiple websites.
+
+# Creating a migration file for your app models
+  ```
+  => python manage.py makemigrations <app_name>
+  ```
+  This will create a migration dir and file for the app
+
+# Load your migration into the DB
+  ```
+  => python mange.py migrate
+  ```
+  This will load your migrations into the DB
