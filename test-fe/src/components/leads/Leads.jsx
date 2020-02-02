@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from "react-redux"
 // import PropTypes from 'prop-types'
-import { getLeads } from '../../actions/leads'
+import { getLeads, deleteLead } from '../../actions/leads'
 
 function Leads(props){
+  
   React.useEffect(() => {
     console.log("IN THE USE EFFECT")
     props.getLeads()
   }, [])
-  
+
  if (!props.leads) return <h1>Loading..</h1>
 
   return(
@@ -31,7 +32,7 @@ function Leads(props){
               <td>{lead.name}</td>
               <td>{lead.email}</td>
               <td>{lead.message}</td>
-              <td><button className="btn btn-danger btn-sm">Delete</button></td>
+              <td><button className="btn btn-danger btn-sm" onClick={() => props.deleteLead(lead.id)}>Delete</button></td>
             </tr>
           )) }
         </tbody>
@@ -44,4 +45,4 @@ const mapStateToProps = state => ({
   leads: state.leads.leads
 })
 
-export default connect(mapStateToProps, {getLeads})(Leads)
+export default connect(mapStateToProps, {getLeads, deleteLead})(Leads)
