@@ -1,15 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 // Components
 import Loader from './components/Loader'
-
+import Header from './components/layout/Header'
+import Dashboard from './components/leads/Dashboard'
 function App() {
   return (
-    <div className="App">
-      <Loader/>
+    <div>
+      <Header/>
+      <div className="container">
+        <Dashboard/>
+      </div>
     </div>
+      
   );
 }
 
