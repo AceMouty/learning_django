@@ -1,19 +1,22 @@
 import React from 'react';
 import './App.css';
-
 // Components
-import Loader from './components/Loader'
 import Header from './components/layout/Header'
 import Dashboard from './components/leads/Dashboard'
+// Redux
+import { Provider } from "react-redux"
+import store from './store'
+
 function App() {
   return (
-    <div>
-      <Header/>
-      <div className="container">
-        <Dashboard/>
+    <Provider store={store}>
+      <div>
+        <Header/>
+        <div className="container">
+          <Dashboard/>
+        </div>
       </div>
-    </div>
-      
+      </Provider>
   );
 }
 
